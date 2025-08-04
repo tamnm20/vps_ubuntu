@@ -1,0 +1,27 @@
+services:
+  ubuntu-vps:
+    build: .
+    container_name: ubuntu20
+    hostname: ubuntu20
+    ports:
+      - "2223:22"  # SSH port mapping (host:container)
+      - "8080:80"  # HTTP port
+      - "8443:443" # HTTPS port
+    volumes:
+      - ./data:/home:rw              # Mount host data folder to container /home
+      - ./shared:/shared:rw          # Shared folder with host
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro  # For systemd (if needed)
+    privileged: true  # Cần cho một số services
+    restart: unless-stopped
+    environment:
+      - TERM=xterm-256color
+    networks:
+      - vps_network
+
+volumes:
+  vps_data:
+    driver: local
+
+networks:
+  vps_network:
+    driver: bridge
