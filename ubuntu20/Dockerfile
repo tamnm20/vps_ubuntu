@@ -8,7 +8,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # 🔧 MEMORY OPTIMIZATION - Cài packages trong 1 layer để giảm size
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    apt update && apt install -y build-essential\
     openssh-server \
     sudo \
     curl \
@@ -22,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     gnupg \
     lsb-release \
+    build-essential\
     # 🔧 MONITORING TOOLS (các commands free, vmstat, df, du đã có sẵn)
     sysstat \
     iotop \

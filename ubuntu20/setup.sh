@@ -26,8 +26,11 @@ echo "   ./data/tam  → /home/tam (in container)"
 echo "   ./shared    → /shared (in container)"
 
 # Dừng và xóa container cũ (nếu có)
+#🧼 Nếu muốn "xóa sạch triệt để" mọi thứ:
+#docker-compose down -v --rmi all --remove-orphans
 echo "🔄 Dừng và xóa container cũ..."
 docker-compose down --remove-orphans
+docker image prune -af
 
 # Build và khởi động container
 echo "🔨 Build Docker image..."
