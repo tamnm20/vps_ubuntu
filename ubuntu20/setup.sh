@@ -23,7 +23,6 @@ chmod 755 shared
 
 echo "ℹ️  Directory mapping:"
 echo "   ./data/tam  → /home/tam (in container)"
-echo "   ./data/root → /home/root (in container)"
 echo "   ./shared    → /shared (in container)"
 
 # Dừng và xóa container cũ (nếu có)
